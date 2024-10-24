@@ -8,6 +8,8 @@ import dayGridPlugin from '@fullcalendar/daygrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import esLocale from '@fullcalendar/core/locales/es';
 import { CalendarService } from '../../services/calendar.service';
+import { ModalController } from '@ionic/angular';
+import { CalendarModalComponent } from 'src/app/components/calendar-modal/calendar-modal.component';
 
 @Component({
   selector: 'app-home',
@@ -44,7 +46,8 @@ export class HomePage implements OnInit, OnDestroy {
   };
 
   handleDateClick(arg:any) {
-    alert('date click! ' + arg.dateStr)
+    this.presentModal()
+    //alert('date click! ' + arg.dateStr)
     console.log(arg);
   }
 
@@ -54,7 +57,8 @@ export class HomePage implements OnInit, OnDestroy {
     private authService: AuthService, 
     private router: Router, 
     private calendarService: CalendarService,
-     private renderer: Renderer2 
+    private renderer: Renderer2,
+    private modalController: ModalController
   ) {
     this.userName = this.authService.getUserName(); // Método para obtener el nombre del usuario
     this.isLoggedIn = !!this.userName;
@@ -202,6 +206,13 @@ export class HomePage implements OnInit, OnDestroy {
 
   closeProfileMenu() {
     this.isProfileMenuOpen = false; // Cerrar el menú al presionar fuera de él
+  }
+
+  async presentModal() {
+    const modal = await this.modalController.create({
+      component: CalendarModalComponent,
+    });
+    return await modal.present();
   }
 
   
