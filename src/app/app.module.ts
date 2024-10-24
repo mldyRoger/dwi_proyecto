@@ -8,9 +8,10 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { CalendarModalComponent } from './components/calendar-modal/calendar-modal.component'; 
 
 @NgModule({
-  declarations: [AppComponent],
+  declarations: [AppComponent, CalendarModalComponent],
   imports: [BrowserModule, IonicModule.forRoot(), AppRoutingModule, ReactiveFormsModule, HttpClientModule],
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
