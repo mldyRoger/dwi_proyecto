@@ -1,0 +1,7 @@
+{
+  "name": "MobUTEQ",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

@@ -1,0 +1,189 @@
+/* Estilo general, aplicable tanto para desktop como móvil */
+ion-content {
+    --background: #FFF; /* Color de fondo del contenido */
+}
+
+.separator {
+    height: 2px; /* Altura de la línea */
+    background-color: white; /* Color de la línea */
+    margin: 0; /* Sin márgenes */
+}
+
+.mobile-only ion-segment-button {
+    color: #000000; /* Cambia esto al color que desees para el texto y los íconos */
+}
+
+ion-footer, ion-buttons.desktop-only {
+    display: none; /* Ocultar por defecto */
+}
+
+.custom-modal {
+    position: fixed; /* Posicionamiento fijo */
+    top: 0; /* Asegúrate de que esté en la parte superior */
+    left: 0; /* Asegúrate de que esté a la izquierda */
+    width: 100%; /* Ancho del modal ocupa toda la pantalla */
+    height: 100%; /* Altura del modal ocupa toda la pantalla */
+    background: rgba(0, 0, 0, 0.5); /* Fondo negro transparente */
+    z-index: 9999; /* Asegúrate de que esté por encima del contenido */
+}
+
+.modal-content {
+    position: absolute; /* Posicionamiento absoluto dentro del modal */
+    bottom: 75px; /* 10px desde el fondo */
+    right: 20px; /* 10px desde la derecha */
+    width: 250px; /* Ajusta el ancho según sea necesario */
+    border-radius: 5px; /* Bordes redondeados para el contenido */
+    background: rgb(0, 0, 0); /* Fondo oscuro para el contenido */
+    padding: 5px; /* Espaciado interno */
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2); /* Sombra del contenido */
+}
+
+/* Para dispositivos con un ancho mayor a 768px (desktop) */
+@media screen and (min-width: 769px) {
+    ion-footer.mobile-only {
+        display: none; /* Ocultar el navbar inferior en desktop */
+    }
+
+    .mobile-only {
+        display: none;
+    }
+
+    ion-buttons.desktop-only {
+        display: flex; /* Mostrar los botones del header en desktop */
+    }
+}
+
+/* Para dispositivos con un ancho menor a 768px (móviles) */
+@media screen and (max-width: 768px) {
+    ion-footer.mobile-only {
+        display: block; /* Mostrar el navbar inferior en móviles */
+    }
+
+    .mobile-only {
+        display: block;
+    }
+
+    ion-buttons.desktop-only {
+        display: none; /* Ocultar los botones del header en móviles */
+    }
+}
+
+
+
+/*ESTILOS CALENDAR*/
+.calendar{
+    padding: 3px;
+}
+.fc-day-rango {
+    border: 2px dashed red; /* Cambia el color según sea necesario */
+    background-color: transparent !important;
+  }
+.single-day-event {
+    background-color: #ffcc00; /* Color de fondo para eventos de un día */
+    border: 1px solid #ffd700; /* Bordes */
+  }
+  
+  .range-event {
+    background-color: #34b30d; /* Color de fondo para eventos de rango */
+    border: 1px solid #0056b3;
+  }
+  .evento-uno {
+    background-color: #ff9999; /* Color de fondo */
+    border-radius: 10px; /* Bordes redondeados */
+  }
+
+  .suspension-border {
+    border: 10px solid #000 !important; /* Asegúrate de usar !important si es necesario */
+  }
+
+  .fc-day.highlighted {
+    border: 2px solid #ff0000; /* Cambia el color según sea necesario */
+  }
+  .event {
+    padding: 5px;
+    border-radius: 5px;
+  }
+
+  /* calendar.component.scss */
+  .fc-day {
+    border: 1px solid #000 !important; 
+    color: #000 !important;
+}
+  
+  .fc-daygrid-day:hover {
+    background-color: #d1e0e0; /* Color al pasar el mouse */
+  }
+  
+  .fc-daygrid-header {
+    background-color: #007bff; /* Color del encabezado */
+    color: #fff; /* Color del texto del encabezado */
+  }
+  
+  .custom-day-class {
+    background-color: #e0f7fa;
+    color: #00796b;
+  }
+  :host ::ng-deep .fc-day {
+    border-color: #fff !important; /* Cambia el color de los bordes */
+   // color: #000; /* Cambia el color del número de los días */
+}
+
+:host ::ng-deep .fc-daygrid-day-number{
+ // border-color: #000 !important; /* Cambia el color de los bordes */
+  color: #000; /* Cambia el color del número de los días */
+  //
+}
+:host ::ng-deep .fc-col-header-cell-cushion{
+  color: #0F5B95;
+ }
+
+:host ::ng-deep .fc-day.fc-day-today {
+  background-color: #ecf0f1; /* Cambia este color al que prefieras */
+  font-weight: bold
+}
+:host ::ng-deep .fc-toolbar-title{
+ color: #114E7B;
+}
+
+
+/* Estilos para las cards de home*/
+ion-row {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.responsive-card {
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Asegura que todas las tarjetas tengan la misma altura */
+}
+
+.card-content {
+  //max-height: 100px; /* Ajusta según necesites */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2; /* Muestra solo 3 líneas */
+}
+.text-container {
+  display: flex;
+  justify-content: center; /* Alinea los botones a la derecha */
+  padding-bottom: 3px;
+}
+.icon-card{
+  font-size: 16px;
+  margin-right: 3px;
+}
+.btn-danger{
+  background-color: red;
+}
+
+.main-space {
+  display: flex;
+  flex-direction: row;
+  align-items: center; /* Centra horizontalmente */
+  justify-content: center; /* Centra verticalmente */
+  height: 100%; /* Asegura que ocupe el 100% del alto del contenedor */
+}
+  

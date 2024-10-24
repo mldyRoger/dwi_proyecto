@@ -1,0 +1,141 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>
+      Inicio
+    </ion-title>
+    <img src="assets/images/logoMobUTEQ.png" alt="Logo" class="img-logo mobile-only"/>
+    <ion-buttons slot="end" class="desktop-only">
+      <ion-button>
+        Mapa
+      </ion-button>
+      <ion-button>
+        Horario
+      </ion-button>
+      <ion-button>
+        Configuración
+      </ion-button>
+      <ion-button *ngIf="isLoggedIn" class="name">
+        {{ userName }}
+      </ion-button>
+      <ion-button *ngIf="!isLoggedIn" (click)="login()" class="name">
+        Iniciar sesión
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<div class="separator"></div> <!-- Línea separadora -->
+
+<ion-content>
+  <!-- Contenido principal -->
+  <div id="main-content">
+    
+    
+    <ion-grid>
+    <ion-row class="main-space">
+      <ion-col size="12" size-md="6" size-lg="6">
+        <div class="calendar"> 
+          <full-calendar [options]="calendarOptions"></full-calendar>
+        </div>
+      </ion-col>
+      <ion-col size="12" size-md="6" size-lg="6">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="6" size-md="6" size-sm="6" size-lg="6">
+              <ion-card class="responsive-card">
+                <ion-card-content class="card-content">
+                  <img src="assets/images/oferta_educativa.PNG" 
+                  alt="Oferta educativa">
+                </ion-card-content>
+                <div class="text-container">
+                   <span>Oferta Educativa</span>
+                </div>
+              </ion-card>
+            </ion-col>
+      
+            <ion-col size="6" size-md="6" size-sm="6" size-lg="6">
+              <ion-card class="responsive-card">
+                <ion-card-content class="card-content">
+                  <img src="assets/images/calificacion.jpg" 
+                  alt="Calificaiones">
+                </ion-card-content>
+                <div class="text-container">
+                   <span>Oferta Educativa</span>
+                </div>
+              </ion-card>
+            </ion-col>
+      
+            <ion-col size="6" size-md="6" size-sm="6" size-lg="6">
+              <ion-card class="responsive-card">
+                <ion-card-content class="card-content">
+                  <img src="assets/images/calificacion.jpg" 
+                  alt="Calificaiones">
+                </ion-card-content>
+                <div class="text-container">
+                   <span>Portal de alumnos</span>
+                </div>
+              </ion-card>
+            </ion-col>
+            <ion-col size="6" size-md="6" size-sm="6" size-lg="6">
+              <ion-card class="responsive-card">
+                <ion-card-content class="card-content">
+                  <img src="assets/images/calificacion.jpg" 
+                  alt="Calificaiones">
+                </ion-card-content>
+                <div class="text-container">
+                   <span>Portal de alumnos</span>
+                </div>
+              </ion-card>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+
+      </ion-col>
+      
+    </ion-row>
+  </ion-grid>
+    
+    <!-- El contenido principal de tu página -->
+  </div>
+
+</ion-content>
+
+<div class="separator"></div> <!-- Línea separadora -->
+
+<!-- Navbar inferior solo para móvil -->
+<ion-footer class="mobile-only">
+  <ion-toolbar>
+    <ion-segment>
+      <ion-segment-button>
+        <ion-icon name="map-outline"></ion-icon>
+        <ion-label>Mapa</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-icon name="calendar-outline"></ion-icon>
+        <ion-label>Horario</ion-label>
+      </ion-segment-button>
+      <ion-segment-button>
+        <ion-icon name="settings-outline"></ion-icon>
+        <ion-label>Configuración</ion-label>
+      </ion-segment-button>
+      <ion-segment-button (click)="toggleProfileMenu()">
+        <ion-icon name="person-outline"></ion-icon>
+        <ion-label>Perfil</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+
+  <!-- Modal que actúa como menú lateral desde la esquina inferior derecha -->
+<div class="custom-modal" *ngIf="isProfileMenuOpen" (click)="closeProfileMenu()">
+  <div class="modal-content" (click)="$event.stopPropagation()">
+    <ion-list>
+      <ion-item>
+        <ion-label>{{ userName }}</ion-label>
+      </ion-item>
+      <ion-item (click)="logout()">
+        <ion-label>Cerrar sesión</ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</div>
+</ion-footer>
